@@ -52,7 +52,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'admin' => \App\Http\Middleware\VerifyAdminMiddleware::class,
+        'superAdmin' => \App\Http\Middleware\VerifySuperAdminMiddleware::class,
+        'estateAdmin' => \App\Http\Middleware\VerifyEstateAdminMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -66,6 +67,7 @@ class Kernel extends HttpKernel
         'JWTAuth' => \Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => \Tymon\JWTAuthFacades\JWTFactory::class,
         'checkGateman' => \App\Http\Middleware\VerifyGateman::class,
+        'checkResident' => \App\Http\Middleware\VerifyResidentMiddleware::class,
     ];
 
     /**
